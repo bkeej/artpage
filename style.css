@@ -1,90 +1,73 @@
-/* Basic Reset */
-body, h1, p, div, img, iframe, header, main, footer {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-    box-sizing: border-box; /* Makes layout calculations easier */
-}
-
-/* Aggressively Simple Style */
+/* Basic Reset & Body Style */
 body {
-    background-color: #ffffff; /* White background */
-    color: #000000; /* Black text */
-    font-family: Times New Roman, Times, serif; /* Classic professor font */
-    line-height: 1.5; /* Basic readability */
-    padding: 15px; /* Base padding */
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    font-weight: bold;
+    font-size: 1em;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Link Styling */
+/* Link Styling from original file */
 a {
-    color: #0000ff; /* Standard blue link */
-    text-decoration: underline; /* Standard underline */
+    color: #0000ff;
+    text-decoration: underline;
 }
 
 a:visited {
-    color: #551a8b; /* Standard visited purple link */
-}
-
-/* Container for Centering Content on Larger Screens */
-.container {
-    max-width: 960px; /* Max width for content area */
-    margin: 0 auto; /* Center the container */
-    padding: 0 10px; /* Add padding inside container, useful on small screens */
+    color: #551a8b;
 }
 
 /* Header and Footer Styling */
-header, footer {
-    margin-bottom: 20px;
+.header, .footer {
     padding-bottom: 10px;
-    border-bottom: 1px solid #ccc; /* Subtle separation */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
 }
 
-h1 {
-    font-size: 2em; /* Make heading larger */
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-footer {
+.footer {
     margin-top: 30px;
-    border-top: 1px solid #ccc; /* Subtle separation */
+    border-top: 1px solid #ccc;
     border-bottom: none;
     padding-top: 10px;
+}
+
+/* --- Masonry Grid Layout --- */
+.section--collage__items {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(700px, 1fr));
+    grid-auto-rows: 20px; /* Each row is a 20px unit for the JS */
+}
+
+.section--collage__item {
+    position: relative;
+}
+
+.section--collage__item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.block--caption p {
     font-size: 0.9em;
+    padding: 0 5px;
+    margin-bottom: 10px; /* Space between paragraphs */
 }
 
-/* Gallery Styling */
-#gallery {
-    /* Container for artwork */
-}
-
-.artwork {
-    margin-bottom: 30px; /* Space between artwork items */
-}
-
-.artwork img { /* Specific styling for images */
-    max-width: 100%; /* Make images scale down */
-    height: auto;   /* Maintain aspect ratio for images */
-    display: block; /* Prevent extra space below media */
-    margin-left: auto; /* Center media if it's smaller than container */
-    margin-right: auto;
-    margin-bottom: 8px; /* Space between media and caption */
-}
-
-/* Responsive Aspect Ratio Container for iFrames (like YouTube) */
+/* Responsive Video Container from original file */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio (divide 9 by 16 = 0.5625) */
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
     max-width: 100%;
-    background: #f0f0f0; /* Optional background color while loading */
-    margin-left: auto; /* Center video container */
-    margin-right: auto;
-    margin-bottom: 8px; /* Space below video */
+    margin-bottom: 10px;
 }
 
 .video-container iframe {
@@ -93,49 +76,5 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0; /* Remove default border */
-}
-
-.artwork p { /* Caption styling */
-    font-size: 0.9em;
-    text-align: center; /* Center captions */
-    padding: 0 5px; /* Add slight horizontal padding to captions */
-}
-
-
-/* --- Media Queries for Responsiveness --- */
-
-/* For tablets and smaller devices */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.8em; /* Slightly smaller heading */
-    }
-
-    body {
-        padding: 10px; /* Reduce body padding */
-    }
-
-    .container {
-        padding: 0 5px; /* Reduce container padding */
-    }
-}
-
-/* For mobile phones */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5em; /* Even smaller heading */
-    }
-
-    body {
-        font-size: 15px; /* Slightly smaller base font size if needed */
-        padding: 5px; /* Further reduce body padding */
-    }
-
-    .container {
-        padding: 0; /* Remove container padding if body padding is enough */
-    }
-
-    .artwork p {
-        font-size: 0.85em; /* Slightly smaller captions */
-    }
+    border: 0;
 }
